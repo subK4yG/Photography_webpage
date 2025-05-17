@@ -1,0 +1,179 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.main_box {
+  background: url(photo.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.poem-overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  animation: fadeInUp 2s ease-out;
+}
+.poem-overlay h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #ffda6b;
+  text-shadow: 1px 1px 5px #000;
+}
+.poem-overlay p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+}
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+/* Hamburger Icon */
+.btn_one {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.btn_one i:hover {
+  transform: scale(1.2);
+}
+
+/* Sidebar */
+.sidebar_menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100vh;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: left 0.4s ease;
+  animation: slideIn 0.5s ease;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    left: -320px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+/* Logo */
+.sidebar_menu .logo {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+.sidebar_menu .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Close (X) Button */
+.sidebar_menu .btn_two i {
+  color: grey;
+  font-size: 24px;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.3s ease;
+}
+.sidebar_menu .btn_two i:hover {
+  transform: scale(1.3);
+}
+
+/* Menu items */
+.sidebar_menu .menu {
+  margin-top: 10px;
+}
+.sidebar_menu .menu ul {
+  list-style: none;
+}
+.sidebar_menu .menu li {
+  padding: 8px 20px;
+  font-size: 15px;
+  transition:0.3s ease;
+}
+.sidebar_menu i, a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+.sidebar_menu i {
+  padding-right: 8px;
+}
+.sidebar_menu .menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* Social icons */
+.sidebar_menu .social_media {
+  padding: 20px 0;
+  text-align: center;
+}
+.sidebar_menu .social_media i {
+  color:grey;
+  margin: 0 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.sidebar_menu .social_media i:hover {
+  opacity: 1;
+  color: white;
+  transform: scale(1.4);
+}
+
+/* Checkbox logic */
+#check {
+  display: none;
+}
+#check:checked ~ .sidebar_menu {
+  left: 0;
+}
+#check:checked ~ .btn_one i {
+  opacity: 0;
+}
+#check:checked ~ .sidebar_menu .btn_two i {
+  opacity: 1;
+}
